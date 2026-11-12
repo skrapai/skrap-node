@@ -5,14 +5,17 @@
  *   2. verifyEmail(SKRAP_SMOKE_EMAIL)          1 credit if valid or risky, else free
  *   3. getFindRefinement(<unknown id>) -> 404  free (checks error parsing)
  */
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import { NotFoundError, Skrap } from '../src';
 
 const key = process.env.SKRAP_API_KEY;
 const email = process.env.SKRAP_SMOKE_EMAIL || 'support@github.com';
 
 describe.skipIf(!key)('live API smoke test', () => {
-  const skrap = new Skrap({ maxRetries: 1 });
+  let skrap: Skrap;
+  beforeAll(() => {
+    skrap = new Skrap({ maxRetries: 1 });
+  });
 
   it('account.get returns the key owner and balance', async () => {
     const a = await skrap.account.get();
