@@ -1,0 +1,74 @@
+{
+  "name": "skrap-ai",
+  "version": "0.1.0",
+  "description": "Official Node.js / TypeScript SDK for the Skrap.ai API: email verification, email finder, enrichment, bulk jobs, lists and webhooks.",
+  "license": "MIT",
+  "author": "Infralyon Technology (Skrap.ai)",
+  "homepage": "https://skrap.ai/docs/api",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skrapai/skrap-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skrapai/skrap-node/issues"
+  },
+  "keywords": [
+    "skrap",
+    "email verification",
+    "email verifier",
+    "email finder",
+    "enrichment",
+    "b2b",
+    "api",
+    "sdk"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:smoke": "vitest run --config vitest.smoke.config.ts",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build",
+    "prepublishOnly": "npm run check"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@types/node": "^20.19.0",
+    "eslint": "^9.39.0",
+    "tsup": "^8.5.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "^3.2.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
