@@ -14,8 +14,10 @@ export default tseslint.config(
     },
   },
   {
-    files: ['examples/**/*.{js,mjs,ts}'],
-    languageOptions: { globals: { process: 'readonly', console: 'readonly' } },
+    files: ['examples/**/*.{js,mjs,ts}', 'scripts/**/*.{js,mjs}'],
+    languageOptions: {
+      globals: { process: 'readonly', console: 'readonly', Buffer: 'readonly', Response: 'readonly', URL: 'readonly' },
+    },
     rules: { 'no-console': 'off' },
   },
 );

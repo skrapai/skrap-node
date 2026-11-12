@@ -24,6 +24,8 @@ describe('typed errors', () => {
     [402, InsufficientCreditsError, 'INSUFFICIENT_CREDITS'],
     [403, PermissionDeniedError, 'PLAN_REQUIRED'],
     [404, NotFoundError, 'NOT_FOUND'],
+    [404, NotFoundError, 'TASK_NOT_FOUND'],
+    [403, PermissionDeniedError, 'ACCESS_DENIED'],
     [409, ConflictError, undefined],
     [429, RateLimitError, 'RATE_LIMITED'],
     [500, ServerError, 'INTERNAL_ERROR'],
